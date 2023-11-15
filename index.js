@@ -15,19 +15,30 @@ const init = async () => {
   try {
     const producer = kafka.producer()
     await producer.connect()
+    // TODO: get data dynamically for "healthcheck"
+    const data = {
+      name: 'string',
+      uri: 'string',
+      is_paused: true,
+      num_retries: 5,
+      uptime_sla: 100,
+      response_time_sla: 100,
+      use_ssl: true,
+      response_status_code: 0,
+      check_interval_in_seconds: 86400,
+    }
     const result = await producer.send({
       topic,
       messages: [
         {
-          partition: 1,
-          key: 'heartbeat',
-          value: `message from producer`,
+          // TODO: add logic for partitioning of messages
+          partition: 1, // if not specified, msg will be sent based on key
+          key: 'heartbeat', // if not specified, msg will be sent in round-robin fashion
+          value: JSON.stringify(data),
         },
       ],
     })
-
-    // console.log(`Sent msg: ${JSON.stringify(result)}`)
-    logger.info(`Message sent`, { msg: result })
+    logger.info(`Message sent`, { msg: data, res: result })
     await producer.disconnect()
   } catch (error) {
     logger.error(`Kafka producer error`, { error })
