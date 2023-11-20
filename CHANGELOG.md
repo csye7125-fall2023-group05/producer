@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/csye7125-fall2023-group05/producer/compare/v1.0.0...v1.0.1) (2023-11-20)
+
+
+### Bug Fixes
+
+* add clean exit with code 1 for Kafka producer error ([25b4cbf](https://github.com/csye7125-fall2023-group05/producer/commit/25b4cbf45f5f2f96a3aa825a48602472b61667e6)), closes [#9](https://github.com/csye7125-fall2023-group05/producer/issues/9)
+
 # 1.0.0 (2023-11-16)
 
 
