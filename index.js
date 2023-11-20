@@ -41,9 +41,10 @@ const init = async () => {
       ],
     })
     logger.info(`Message sent`, { msg: data, res: result })
-    await producer.disconnect()
+    await producer.disconnect() // performs clean exit
   } catch (error) {
     logger.error(`Kafka producer error`, { error })
+    process.exit(1)
   }
 }
 
