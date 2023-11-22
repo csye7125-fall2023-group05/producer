@@ -1,3 +1,11 @@
+## [1.0.2](https://github.com/csye7125-fall2023-group05/producer/compare/v1.0.1...v1.0.2) (2023-11-22)
+
+
+### Bug Fixes
+
+* include http_check_id in msg ([88c9b17](https://github.com/csye7125-fall2023-group05/producer/commit/88c9b17b1f38630ac06ad11dffb29f5b785124c1))
+* udpate env vars from CM to include name, retries ([5536c64](https://github.com/csye7125-fall2023-group05/producer/commit/5536c64f397e9077a8eda057b3d80080c173d658))
+
 ## [1.0.1](https://github.com/csye7125-fall2023-group05/producer/compare/v1.0.0...v1.0.1) (2023-11-20)
 
 
