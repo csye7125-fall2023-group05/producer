@@ -8,6 +8,7 @@ const producerConfig = {
   BROKER_2,
   CLIENT_ID,
   TOPIC,
+  ID,
   URL,
   NAME,
   RETRIES,

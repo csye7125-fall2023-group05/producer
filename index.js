@@ -2,8 +2,17 @@ import { Kafka } from 'kafkajs'
 import logger from './config/logger.config.js'
 import producerConfig from './config/app.config.js'
 
-const { BROKER_0, BROKER_1, BROKER_2, CLIENT_ID, TOPIC, URL, NAME, RETRIES } =
-  producerConfig
+const {
+  BROKER_0,
+  BROKER_1,
+  BROKER_2,
+  CLIENT_ID,
+  TOPIC,
+  URL,
+  NAME,
+  RETRIES,
+  ID,
+} = producerConfig
 const topic = TOPIC
 const brokers = [BROKER_0, BROKER_1, BROKER_2]
 
@@ -20,6 +29,7 @@ const init = async () => {
     const response = await fetch(URL)
     const status = await response.status
     const data = {
+      http_check_id: ID,
       name: NAME,
       uri: URL,
       num_retries: RETRIES,
