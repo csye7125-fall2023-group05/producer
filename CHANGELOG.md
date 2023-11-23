@@ -1,3 +1,10 @@
+## [1.0.3](https://github.com/csye7125-fall2023-group05/producer/compare/v1.0.2...v1.0.3) (2023-11-23)
+
+
+### Bug Fixes
+
+* change env vars ([4ac5ca1](https://github.com/csye7125-fall2023-group05/producer/commit/4ac5ca151d0327689285df4da5fb055217ca73db))
+
 ## [1.0.2](https://github.com/csye7125-fall2023-group05/producer/compare/v1.0.1...v1.0.2) (2023-11-22)
 
 
