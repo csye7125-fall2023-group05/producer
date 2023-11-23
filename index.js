@@ -11,7 +11,7 @@ const {
   URL,
   NAME,
   RETRIES,
-  ID,
+  HTTP_CHECK_ID,
 } = producerConfig
 const topic = TOPIC
 const brokers = [BROKER_0, BROKER_1, BROKER_2]
@@ -29,7 +29,7 @@ const init = async () => {
     const response = await fetch(URL)
     const status = await response.status
     const data = {
-      http_check_id: ID,
+      http_check_id: HTTP_CHECK_ID,
       name: NAME,
       uri: URL,
       num_retries: RETRIES,
