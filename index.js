@@ -1,4 +1,4 @@
-import { Kafka } from 'kafkajs'
+import { Kafka, Partitioners } from 'kafkajs'
 import logger from './config/logger.config.js'
 import producerConfig from './config/app.config.js'
 
@@ -23,9 +23,11 @@ const kafka = new Kafka({
 
 const init = async () => {
   try {
-    const producer = kafka.producer()
+    // https://kafka.js.org/docs/producing#default-partitioners
+    const producer = kafka.producer({
+      createPartitioner: Partitioners.DefaultPartitioner,
+    })
     await producer.connect()
-    // TODO: get data dynamically for "healthcheck"
     const response = await fetch(URL)
     const status = await response.status
     const data = {
@@ -33,12 +35,7 @@ const init = async () => {
       name: NAME,
       uri: URL,
       num_retries: RETRIES,
-      // is_paused: true,
-      // uptime_sla: 100,
-      // response_time_sla: 100,
-      // use_ssl: true,
       response_status_code: status,
-      // check_interval_in_seconds: 86400,
     }
     producer
       .send({
@@ -53,9 +50,9 @@ const init = async () => {
         ],
       })
       .then((res) => {
-        logger.info(`Producer Send Result:`, { msg: data, res })
+        logger.info(`Message sent:`, { msg: data, res })
       })
-      .catch((err) => logger.error(`Producer Send Error:`, { err }))
+      .catch((err) => logger.error(`Message not sent`, { err }))
       .finally(async () => {
         await producer.disconnect() // performs clean exit
       })
