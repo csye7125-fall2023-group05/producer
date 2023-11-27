@@ -1,3 +1,10 @@
+## [1.0.5](https://github.com/csye7125-fall2023-group05/producer/compare/v1.0.4...v1.0.5) (2023-11-27)
+
+
+### Bug Fixes
+
+* code cleanup to remove Kafka broker warnings ([28c6220](https://github.com/csye7125-fall2023-group05/producer/commit/28c6220ecace4351939a2bea6291fe705d031e69))
+
 ## [1.0.4](https://github.com/csye7125-fall2023-group05/producer/compare/v1.0.3...v1.0.4) (2023-11-27)
 
 
