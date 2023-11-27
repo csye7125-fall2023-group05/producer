@@ -40,19 +40,25 @@ const init = async () => {
       response_status_code: status,
       // check_interval_in_seconds: 86400,
     }
-    const result = await producer.send({
-      topic,
-      messages: [
-        {
-          // TODO: add logic for partitioning of messages
-          partition: 1, // if not specified, msg will be sent based on key
-          key: 'heartbeat', // if not specified, msg will be sent in round-robin fashion
-          value: JSON.stringify(data),
-        },
-      ],
-    })
-    logger.info(`Message sent`, { msg: data, res: result })
-    await producer.disconnect() // performs clean exit
+    producer
+      .send({
+        topic,
+        messages: [
+          {
+            // TODO: add logic for partitioning of messages
+            partition: 1, // if not specified, msg will be sent based on key
+            key: 'heartbeat', // if not specified, msg will be sent in round-robin fashion
+            value: JSON.stringify(data),
+          },
+        ],
+      })
+      .then((res) => {
+        logger.info(`Producer Send Result:`, { msg: data, res })
+      })
+      .catch((err) => logger.error(`Producer Send Error:`, { err }))
+      .finally(async () => {
+        await producer.disconnect() // performs clean exit
+      })
   } catch (error) {
     logger.error(`Kafka producer error`, { error })
     process.exit(1)
