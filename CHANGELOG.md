@@ -1,3 +1,10 @@
+## [1.0.4](https://github.com/csye7125-fall2023-group05/producer/compare/v1.0.3...v1.0.4) (2023-11-27)
+
+
+### Bug Fixes
+
+* producer message send debug fix ([48d768b](https://github.com/csye7125-fall2023-group05/producer/commit/48d768b887d559f28d7322e64a96c9561ddf41bc))
+
 ## [1.0.3](https://github.com/csye7125-fall2023-group05/producer/compare/v1.0.2...v1.0.3) (2023-11-23)
 
 
