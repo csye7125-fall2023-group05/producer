@@ -43,8 +43,8 @@ const init = async () => {
         messages: [
           {
             // TODO: add logic for partitioning of messages
-            partition: 1, // if not specified, msg will be sent based on key
-            key: 'heartbeat', // if not specified, msg will be sent in round-robin fashion
+            // partition: 1, // if not specified, msg will be sent based on key
+            // key: 'heartbeat', // if not specified, msg will be sent in round-robin fashion
             value: JSON.stringify(data),
           },
         ],
