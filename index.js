@@ -21,6 +21,18 @@ const kafka = new Kafka({
   brokers,
 })
 
+const quitIstioProxy = async () => {
+  fetch('http://localhost:15000/quitquitquit', {
+    method: 'POST',
+  })
+    .then((res) => {
+      logger.info('Sent quit message to istio-proxy', { res })
+    })
+    .catch((err) => {
+      logger.error('Could not send quit request to istio-proxy', { err })
+    })
+}
+
 const init = async () => {
   try {
     // https://kafka.js.org/docs/producing#default-partitioners
@@ -54,10 +66,12 @@ const init = async () => {
       })
       .catch((err) => logger.error(`Message not sent`, { err }))
       .finally(async () => {
+        quitIstioProxy()
         await producer.disconnect() // performs clean exit
       })
   } catch (error) {
     logger.error(`Kafka producer error`, { error })
+    quitIstioProxy()
     process.exit(1)
   }
 }
