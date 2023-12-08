@@ -1,3 +1,10 @@
+## [1.0.6](https://github.com/csye7125-fall2023-group05/producer/compare/v1.0.5...v1.0.6) (2023-12-08)
+
+
+### Bug Fixes
+
+* istio-connection ([80ad843](https://github.com/csye7125-fall2023-group05/producer/commit/80ad8433ce8f96c36fc88674e15b8fdc23629935))
+
 ## [1.0.5](https://github.com/csye7125-fall2023-group05/producer/compare/v1.0.4...v1.0.5) (2023-11-27)
 
 
